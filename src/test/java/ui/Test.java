@@ -33,7 +33,7 @@ class ChromeTest {
         }
 
         @Test
-        //test is failing somehere in the middle due to some item doesnt have 'table' text in the title
+        //test is failing somewhere in the middle due to some item doesn't have 'table' text in the title
         void TestContainsText() {
             // Exercise
             driver.get("https://www.webstaurantstore.com/");
@@ -71,7 +71,8 @@ class ChromeTest {
             driver.findElement(By.cssSelector(".ReactModalPortal footer button")).click();
             SoftAssertions softAssertions = new SoftAssertions();
 
-            //retry for 10 seconds for page re rendering after cart is emptied
+            //can be moved to helpers methods to more convenient usage
+            //retry for 10 seconds for page re-rendering after cart is emptied
             for (int i=0; i<=MAX_RETRIES; i++)
                 try {
                     softAssertions.assertThat(driver.findElement(By.cssSelector("div.cartEmpty"))
